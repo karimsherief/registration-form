@@ -7,13 +7,13 @@ const PAGES = {
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 let users = JSON.parse(localStorage.getItem('users')) || []
 
-if (currentUser && (location.pathname === PAGES.login || location.pathname === PAGES.signup)) {
-    location.href = PAGES.home
-}
-if (currentUser == null && location.pathname !== PAGES.login && location.pathname !== PAGES.signup) {
-    location.href = PAGES.login
-}
-
+// if (currentUser && (location.pathname === PAGES.login || location.pathname === PAGES.signup)) {
+//     location.href = PAGES.home
+// }
+// if (currentUser == null && location.pathname !== PAGES.login && location.pathname !== PAGES.signup) {
+//     location.href = PAGES.login
+// }
+console.log(location)
 const NameRegex = /^[\w ]{4,20}$/;
 const EmailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 const PasswordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
