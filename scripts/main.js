@@ -1,5 +1,5 @@
 const PAGES = {
-    home: ['/', '/index.html'],
+    home: '/',
     login: '/login.html',
     signup: '/register.html'
 }
@@ -8,9 +8,9 @@ let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 let users = JSON.parse(localStorage.getItem('users')) || []
 
 if (currentUser && (location.pathname === PAGES.login || location.pathname === PAGES.signup)) {
-    location.href = PAGES.home[0]
+    location.href = PAGES.home
 }
-if (currentUser == null && PAGES.home.includes(location.pathname)) {
+if (currentUser == null && location.pathname !== PAGES.login && location.pathname !== PAGES.signup) {
     location.href = PAGES.login
 }
 

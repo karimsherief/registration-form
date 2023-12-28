@@ -22,7 +22,7 @@ form.addEventListener('submit', e => {
     }
 
     localStorage.setItem('currentUser', JSON.stringify(user))
-    location.href = PAGES.home[0]
+    location.href = PAGES.home
 })
 
 email.addEventListener('input', handleInput)
