@@ -19,7 +19,7 @@ form.addEventListener('submit', e => {
     clearInputs()
     localStorage.setItem('users', JSON.stringify([...users, newUser]))
     localStorage.removeItem('savedUser')
-    location.href = PAGES.login
+    location.replace(host + PAGES.login)
 })
 
 userName.addEventListener('input', handleInput)

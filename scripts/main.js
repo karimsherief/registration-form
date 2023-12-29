@@ -1,17 +1,20 @@
 const PAGES = {
-    home: ['/', '/index.html'],
+    home: '/',
     login: '/login.html',
     signup: '/register.html'
 }
 
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 let users = JSON.parse(localStorage.getItem('users')) || []
+let pathname = location.pathname.slice(location.pathname.lastIndexOf('/'))
+let host = location.href.slice(0, location.href.lastIndexOf('/'))
 
-if (currentUser && (location.pathname === PAGES.login || location.pathname === PAGES.signup)) {
-    location.href = PAGES.home[0]
+if (currentUser && (pathname === PAGES.login || pathname === PAGES.signup)) {
+    location.replace(host + PAGES.home)
 }
-if (currentUser == null && PAGES.home.includes(location.pathname)) {
-    location.href = PAGES.login
+
+if (currentUser == null && pathname !== PAGES.login && pathname !== PAGES.signup) {
+    location.replace(host + PAGES.login)
 }
 
 const NameRegex = /^[\w ]{4,20}$/;
